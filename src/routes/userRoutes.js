@@ -8,6 +8,7 @@ const router = express.Router();
 
 // Public routes
 router.post('/', validate(registerSchema), UserController.register);
+
 router.get('/:id', UserController.getUserById);
 
 export default router;

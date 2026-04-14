@@ -4,14 +4,10 @@ import userRoutes from './userRoutes.js';
 
 const router = express.Router();
 
-// Semua endpoint user akan diawali dengan /users
+// Semua endpoint user akan langsung di /users
 router.use('/users', userRoutes);
 
-// Nanti kita tambahkan:
+// Nanti ditambahkan route lain...
 // router.use('/companies', companyRoutes);
-// router.use('/categories', categoryRoutes);
-// router.use('/jobs', jobRoutes);
-// router.use('/authentications', authRoutes);
-// ... dll
 
 export default router;
