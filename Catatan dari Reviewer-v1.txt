@@ -1,0 +1,17 @@
+Catatan dari Reviewer
+Checklist
+
+Perlu diperbaiki:
+1. Menggunakan Database untuk Menyimpan Data.
+2. Menerapkan Autentikasi dan Otorisasi pada RESTful API.
+
+Hai baji-dicoding! Terima kasih telah mengirimkan tugas submission sebagai syarat untuk melanjutkan pembelajaran. Project aplikasi yang kamu kirimkan sayangnya belum memenuhi seluruh kriteria yang ada. Masih terdapat beberapa catatan yang harus terpenuhi untuk menyelesaikan tugas submission. Yaitu:
+
+Masih terdapat error pada pengujian mandatory Postman berikut.
+
+Kamu belum membuat kode untuk penanganan endpoint authentications dan yang lainnya.
+
+Kamu dapat mengikuti beberapa saran di atas agar submission berikutnya dapat diterima dengan baik.
+Perbaikan route authentications.png
+
+Tetap semangat ya! Jika kamu ada pertanyaan atau kendala dalam menerapkan beberapa saran di atas. Silakan tanyakan di forum diskusi kelas. Kami akan dengan senang hati membantu menjawabnya.
