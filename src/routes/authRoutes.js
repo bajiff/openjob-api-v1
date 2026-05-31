@@ -1,7 +1,7 @@
 // src/routes/authRoutes.js
 import express from 'express';
 import { AuthController } from '../controllers/AuthController.js';
-import { validate } from '../middleware/validation.js';
+import { validate } from '../middleware/validations.js';
 import { loginSchema, refreshTokenSchema } from '../validators/authValidator.js';
 import { authenticate } from '../middleware/auth.js'; // Nanti kita buat
 
