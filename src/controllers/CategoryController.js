@@ -6,7 +6,7 @@ export const CategoryController = {
   async create(req, res, next) {
     try {
       const newCategory = await Category.create(req.body);
-      return successResponse(res, 201, 'Kategori berhasil ditambahkan', { category: newCategory });
+      return successResponse(res, 201, 'Kategori berhasil ditambahkan', newCategory);
     } catch (error) {
       next(error);
     }

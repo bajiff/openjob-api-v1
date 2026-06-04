@@ -6,7 +6,7 @@ export const CompanyController = {
   async create(req, res, next) {
     try {
       const newCompany = await Company.create(req.body);
-      return successResponse(res, 201, 'Perusahaan berhasil ditambahkan', { company: newCompany });
+      return successResponse(res, 201, 'Perusahaan berhasil ditambahkan', newCompany);
     } catch (error) {
       next(error);
     }
