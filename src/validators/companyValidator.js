@@ -7,8 +7,10 @@ export const companySchema = Joi.object({
     'string.min': 'Nama perusahaan minimal 3 karakter',
     'any.required': 'Nama perusahaan wajib diisi'
   }),
-  location: Joi.string().max(100).allow('', null).messages({
-    'string.max': 'Lokasi maksimal 100 karakter'
+  location: Joi.string().max(100).required().messages({
+    'string.empty': 'Lokasi tidak boleh kosong',
+    'string.max': 'Lokasi maksimal 100 karakter',
+    'any.required': 'Lokasi wajib diisi'
   }),
   description: Joi.string().allow('', null)
 });
