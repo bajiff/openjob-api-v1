@@ -215,7 +215,7 @@ Alur branch dalam repositori pengembangan proyek ini dibagi menjadi:
 ## :camera: Gallery
 
 Tangkapan layar Diagram ERD Skema Database OpenJob:
-![Diagram ERD OpenJob](./gitignore/ERD-OpenJob-versi-1.png)
+![Diagram ERD OpenJob](./ERD-OpenJob-versi-1.png)
 
 ---
 
