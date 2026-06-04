@@ -15,10 +15,20 @@ export const errorHandler = (err, req, res, next) => {
     message = err.details.map(detail => detail.message).join(', ');
   }
 
-  // Handle PostgreSQL Unique Violation (Email sudah dipakai)
+  // Handle PostgreSQL Unique Violation
   if (err.code === '23505') {
     statusCode = 400;
-    message = 'Email sudah terdaftar';
+    if (err.detail && err.detail.includes('email')) {
+      message = 'Email sudah terdaftar';
+    } else if (err.detail && err.detail.includes('name')) {
+      message = 'Nama kategori sudah digunakan';
+    } else if (err.constraint === 'unique_user_job') {
+      message = 'Anda sudah melamar lowongan ini';
+    } else if (err.constraint === 'unique_user_job_bookmark') {
+      message = 'Lowongan ini sudah ada di bookmark Anda';
+    } else {
+      message = 'Data duplikat terdeteksi';
+    }
   }
 
   // Handle PostgreSQL Foreign Key Violation
