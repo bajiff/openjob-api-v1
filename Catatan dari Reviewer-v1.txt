@@ -15,3 +15,175 @@ Kamu dapat mengikuti beberapa saran di atas agar submission berikutnya dapat dit
 Perbaikan route authentications.png
 
 Tetap semangat ya! Jika kamu ada pertanyaan atau kendala dalam menerapkan beberapa saran di atas. Silakan tanyakan di forum diskusi kelas. Kami akan dengan senang hati membantu menjawabnya.
+
+
+
+Setelah diperiksa, masih terdapat kegagalan pada bagian pengujian [Mandatory]. Kriteria ini merupakan persyaratan wajib yang harus terpenuhi.
+
+[1] Add Company without Authentication
+
+  POST http://localhost:3000/companies
+
+  ✗ 1. it should response 401 status code | AssertionError: expected response to have status code 401 but got 404
+
+
+
+
+
+[2] Update Company without Authentication
+
+  PUT http://localhost:3000/companies/xxx
+
+  ✗ 2. it should response 401 status code | AssertionError: expected response to have status code 401 but got 404
+
+
+
+
+
+[3] Delete Company without Authentication
+
+  DELETE http://localhost:3000/companies/xxx
+
+  ✗ 3. it should response 401 status code | AssertionError: expected response to have status code 401 but got 404
+
+
+
+
+
+[4] Add Company with Invalid Payload
+
+  POST http://localhost:3000/companies
+
+  ✗ 4. it should response 400 status code | AssertionError: expected response to have status code 400 but got 404
+
+
+
+
+
+[5] Add Company with Invalid Payload
+
+  POST http://localhost:3000/companies
+
+  ✗ 5. it should response 400 status code | AssertionError: expected response to have status code 400 but got 404
+
+
+
+
+
+[6] Add Company with Invalid Payload
+
+  POST http://localhost:3000/companies
+
+  ✗ 6. it should response 400 status code | AssertionError: expected response to have status code 400 but got 404
+
+
+
+
+
+[7] Add Company with Valid Payload
+
+  POST http://localhost:3000/companies
+
+  ✗ 7. it should response 201 status code | AssertionError: expected response to have status code 201 but got 404
+
+  ✗ 8. response body should have correct property and value | AssertionError: expected 'failed' to equal 'success'
+
+
+
+
+
+[8] Get All Companies
+
+  GET http://localhost:3000/companies
+
+  ✗ 9. it should response 200 status code | AssertionError: expected response to have status code 200 but got 404
+
+  ✗ 10. response body should have correct property and value | AssertionError: expected 'failed' to equal 'success'
+
+
+
+
+
+[9] Get Company by Id with Valid Id
+
+  GET http://localhost:3000/companies/
+
+  ✗ 11. it should response 200 status code | AssertionError: expected response to have status code 200 but got 404
+
+  ✗ 12. response body should have correct property and value | AssertionError: expected 'failed' to equal 'success'
+
+
+
+
+
+[10] Update Company with Valid Id
+
+  PUT http://localhost:3000/companies/
+
+  ✗ 13. it should response 200 status code | AssertionError: expected response to have status code 200 but got 404
+
+  ✗ 14. response body should have correct property and value | AssertionError: expected 'failed' to equal 'success'
+
+
+
+
+
+[11] Delete Company with Valid Id
+
+  DELETE http://localhost:3000/companies/
+
+  ✗ 15. it should response 200 status code | AssertionError: expected response to have status code 200 but got 404
+
+  ✗ 16. response body should have correct property and value | AssertionError: expected 'failed' to equal 'success'
+
+
+
+
+
+[12] Add Category without Authentication
+
+  POST http://localhost:3000/categories
+
+  ✗ 17. it should response 401 status code | AssertionError: expected response to have status code 401 but got 404
+
+Detail mengenai kegagalan tersebut dapat kamu temukan pada catatan code review  di aplikasi submission. Harap periksa catatan tersebut dengan teliti, lakukan perbaikan, dan pastikan semua pengujian berhasil pada submission berikutnya.
+
+Sebelum mengirimkan submission, pastikan kamu melakukan pengujian mandiri terlebih dahulu. Cobalah untuk menghapus dan membuat database berikut dengan tabel serta lakukan migrasi ulang untuk memastikan bahwa semua berjalan dengan baik pada environment yang berbeda.
+
+
+
+
+
+// src/routes/index.js
+
+import express from 'express';
+
+import userRoutes from './userRoutes.js';
+
+import authRoutes from './authRoutes.js';
+
+ 
+
+const router = express.Router();
+
+ 
+
+// Semua endpoint user akan langsung di /users
+
+router.use('/users', userRoutes);
+
+router.use('/authentications', authRoutes); // Endpoint login/logout
+
+ 
+
+Saat ini kamu hanya menambahkan routing pada endpoint users dan authentications saja, resources lain seperti companies, jobs, dan lainnya belum di tambahkan. Sehingga akan selalu mengembalikan 404
+
+
+
+// Nanti ditambahkan route lain...
+
+// router.use('/companies', companyRoutes);
+
+ 
+
+export default router;
